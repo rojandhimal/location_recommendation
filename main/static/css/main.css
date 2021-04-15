@@ -1,0 +1,14 @@
+html,
+body{
+  margin: 0;
+  padding: 0;
+}
+
+.caption{
+    height: 40%;
+}
+
+.center-content{
+    position: relative;
+    top: 20vh;
+}

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <div class="slider fullscreen">
+    <ul class="slides">
+      <li>
+        <img src="{% static 'img/Slider1.jpg' %}"> <!-- random image -->
+        <div class="caption section card-panel center-align teal lighten-5 z-depth-3">
+          <h3 class="blue-text text-darken-4">Explore the places of Kathmandu With Us!</h3>
+          <h5 class="blue-grey-text">we recommend best places for you.</h5>
+          <div class="section">
+            <a href="{% url 'recommendationsystem:register' %}" class="waves-effect waves-light btn-large green pulse">Sign up</a>
+          </div>
+          <div class="row">
+            <span class="green-text">Already have an account?<a href="{% url 'recommendationsystem:login' %}">Login</a></span>
+          </div>
+        </div>
+      </li>
+      <li>
+        <img src="{% static 'img/Slider2.jpg' %}"> <!-- random image -->
+        <div class="caption section left-align deep-purple lighten-5 z-depth-3">
+          <h3 class="blue-text text-darken-4 center-align">Choose from our best recommendations!</h3>
+          <h5 class="blue-grey-text center-align">Take your time on exploring.</h5>
+          <div class="row section center-align">
+            <a href="{% url 'recommendationsystem:search' %}" class="waves-effect waves-light btn-large green pulse">Search Places</a>
+          </div>
+        </div>
+      </li>
+      <li>
+        <img src="{% static 'img/Slider3.jpg' %}"> <!-- random image -->
+        <div class="caption section right-align green lighten-5 z-depth-3">
+          <h3 class="blue-text text-darken-4 center-align">Give Your Reviews and Ratings!</h3>
+          <h5 class="blue-grey-text center-align">Get Recommendations that matches your choice.</h5>
+          <div class="row section center-align">
+            <a href="" class="waves-effect waves-light btn-large deep-purple pulse">Rate Places</a>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+{% endblock %}
+
+
+{% block script %}
+<script>
+$(document).ready(function(){
+    $('.slider').slider();
+});
+</script>
+{% endblock %}

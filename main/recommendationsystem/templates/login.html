@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="row center-content">
+  <div class="col card hoverable offset-l4">
+    <form method="post">{% csrf_token %}
+      <div class="card-content center-align">
+        <span class="card-title"><h3 class="teal-text text-lighten-1">Login</h3></span>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">person</i>
+                <input id="username" name="username" type="text" class="validate">
+                <label for="username">Username</label>
+            </div>
+            <div class="input-field col s12">
+                <i class="material-icons prefix">lock</i>
+                <input id="password" name="password" type="password" class="validate">
+                <label for="password">Password</label>
+            </div>
+        </div>
+      <div class="card-action right-align">
+        <input type="reset" id="reset" class="btn-flat grey-text waves-effect waves-teal">
+        <button type="submit" class="btn teal waves-effect waves-light">Login
+          <i class="material-icons right">send</i>
+        </button>
+      </div>
+      </div>
+    </form>
+  </div>
+</div>
+</div>
+
+{% endblock %}
+
+{% block script %}
+<script>
+    $("#reset").on("click", function() {
+      $('label').removeClass('active');
+    });
+</script>
+{% endblock %}
