@@ -417,6 +417,8 @@ def New_Rec(request):
     # Read all data from database
     # all location data
     all_location = LocationData.objects.all() 
+    print("all loc\n")
+    print(all_location)
     # all rating in location data
     rated_location = LocationRated.objects.all()
     # all ratings made by user
@@ -475,15 +477,20 @@ def New_Rec(request):
         
     user_rec = recs.mean(axis=1).sort_values(ascending=False)
     top_five_rec_id =user_rec.head(5)
-
-
-
+    typ_arr = top_five_rec_id.index.array
+    print(typ_arr)
+    rec_title = location_data_df.loc[location_data_df['id'].isin(typ_arr)]
+    print("REc title",rec_title)
     print("This is recommendation id=>",top_five_rec_id)
     # rec_location = LocationData.objects.filter(id=top_five_rec_id)
-    print(rec_location)
-
+    # print(rec_location)   
+    obj = []
     
-
+    for title in rec_title['title']:
+        l =LocationData.objects.get(title=title)
+        obj.append(l)
+       
+    context = {"locations":obj}
     return render(
         request, 'recommendations.html', context)
 
